@@ -30,4 +30,6 @@ public class Payment {
     public void setAmount(double amount) { this.amount = amount; }
     public void setDate(Date date) { this.date = date; }
     public void setMethod(String method) { this.method = method; }
+
+    //Testing github
 }
