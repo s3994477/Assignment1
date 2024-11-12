@@ -10,7 +10,7 @@ import java.util.Date;
 public class Host extends Person {
     //Declare variables unique to host
     private List<Property> managedProperties = new ArrayList<>();
-    private List<Host> cooperatingOwners = new ArrayList<>();
+    private List<Owner> cooperatingOwners = new ArrayList<>();
     private List<RentalAgreement> rentalAgreements = new ArrayList<>();
 
     //Constructors
@@ -27,7 +27,7 @@ public class Host extends Person {
     }
 
     //Adding host object to the list when called to keep track of the host's cooperating owners
-    public void addCooperatingOwner(Host owner) {
+    public void addCooperatingOwner(Owner owner) {
         cooperatingOwners.add(owner);
     }
 
