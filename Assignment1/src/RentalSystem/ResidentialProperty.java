@@ -23,8 +23,11 @@ public class ResidentialProperty extends Property {
         this.petFriendly = petFriendly;
     }
 
-    //Setters
+    //Setters and Getters
     public void setNumBedrooms(int numBedrooms) { this.numBedrooms = numBedrooms; }
     public void setHasGarden(boolean hasGarden) { this.hasGarden = hasGarden; }
     public void setPetFriendly(boolean petFriendly) { this.petFriendly = petFriendly; }
+    public int getNumBedrooms() { return numBedrooms; }
+    public boolean getHasGarden() { return hasGarden; }
+    public boolean getPetFriendly() { return petFriendly; }
 }

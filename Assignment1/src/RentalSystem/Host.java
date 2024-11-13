@@ -6,6 +6,7 @@ package RentalSystem;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
+import java.text.*;
 
 public class Host extends Person {
     //Declare variables unique to host
@@ -17,8 +18,8 @@ public class Host extends Person {
     public Host() {
         super();
     }
-    public Host(String id, String fullName, Date DOB, String contactNo) {
-        super(id, fullName, DOB, contactNo);
+    public Host(String id, String fullName, String date, String contactNo) {
+        super(id, fullName, date, contactNo);
     }
 
     //Adding property object to the list when called to keep track of all properties the host is managing
@@ -35,4 +36,9 @@ public class Host extends Person {
     public void addRentalAgreement(RentalAgreement agreement) {
         rentalAgreements.add(agreement);
     }
+
+    //Methods to get/return all the properties
+    public List<Property> getManagedProperties() { return managedProperties; }
+    public List<Owner> getCooperatingOwners() { return cooperatingOwners; }
+    public List<RentalAgreement> getRentalAgreements() { return rentalAgreements; }
 }

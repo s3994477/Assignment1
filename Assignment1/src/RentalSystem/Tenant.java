@@ -6,6 +6,7 @@ package RentalSystem;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
+import java.text.*;
 
 public class Tenant extends Person {
     //Declare variables unique to tenant
@@ -16,8 +17,8 @@ public class Tenant extends Person {
     public Tenant() {
         super();
     }
-    public Tenant(String id, String fullName, Date DOB, String contactNo) {
-        super(id, fullName, DOB, contactNo);
+    public Tenant(String id, String fullName, String date, String contactNo) {
+        super(id, fullName, date, contactNo);
     }
 
     //Adding rental agreement object to the list when called to keep track of each tenant's rental history
@@ -30,4 +31,7 @@ public class Tenant extends Person {
         paymentRecords.add(payment);
     }
 
+    //Methods to get/return all the properties
+    public List<RentalAgreement> getRentalAgreements() { return rentalAgreements; }
+    public List<Payment> getPaymentRecords() { return paymentRecords; }
 }

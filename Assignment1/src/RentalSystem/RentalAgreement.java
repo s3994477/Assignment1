@@ -6,6 +6,7 @@ package RentalSystem;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
+import java.text.*;
 
 public class RentalAgreement {
     //Declare variables for this class
@@ -18,6 +19,9 @@ public class RentalAgreement {
     private double rentFee;
     private rentalStatus status;
 
+    //Format date
+    SimpleDateFormat ft = new SimpleDateFormat ("dd/MM/yyyy");
+
     //Constructors
     public RentalAgreement() {
         this.id = "";
@@ -29,13 +33,17 @@ public class RentalAgreement {
         this.rentFee = 0;
         this.status = rentalStatus.ACTIVE;
     }
-    public RentalAgreement(String id, Tenant mainTenant, List<Tenant> subTenants, Property leasedProperty, String rentalPeriod, Date contractDate, double rentFee, String Status) {
+    public RentalAgreement(String id, Tenant mainTenant, List<Tenant> subTenants, Property leasedProperty, String rentalPeriod, String date, double rentFee, String Status) {
         this.id = id;
         this.mainTenant = mainTenant;
         this.subTenants = subTenants;
         this.leasedProperty = leasedProperty;
         this.rentalPeriod = rentalPeriod;
-        this.contractDate = contractDate;
+        try {
+            this.contractDate = ft.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         this.rentFee = rentFee;
         //Status assigning
         switch(Status) {
@@ -59,7 +67,7 @@ public class RentalAgreement {
     public List<Tenant> getSubTenants() { return subTenants; }
     public Property getLeasedProperty() { return leasedProperty; }
     public String getRentalPeriod() { return rentalPeriod; }
-    public Date getContractDate() { return contractDate; }
+    public String getContractDate() { return ft.format(contractDate); }
     public double getRentFee() { return rentFee; }
     public String getStatus() {
         if (status == rentalStatus.ACTIVE) {
@@ -75,7 +83,13 @@ public class RentalAgreement {
     public void setSubTenants(List<Tenant> subTenants) { this.subTenants = subTenants; }
     public void setLeasedProperty(Property leasedProperty) { this.leasedProperty = leasedProperty; }
     public void setRentalPeriod(String rentalPeriod) { this.rentalPeriod = rentalPeriod; }
-    public void setContractDate(Date contractDate) { this.contractDate = contractDate; }
+    public void setContractDate(String date) {
+        try {
+            this.contractDate = ft.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
     public void setRentFee(double rentFee) { this.rentFee = rentFee; }
     public void setStatus(String Status) {
         switch(Status) {

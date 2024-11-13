@@ -23,8 +23,11 @@ public class CommercialProperty extends Property {
         this.squareFootage = squareFootage;
     }
 
-    //Setters
+    //Setters and Getters
     public void setBusinessType(String businessType) { this.businessType = businessType; }
     public void setParkingSpaces(int parkingSpaces) { this.parkingSpaces = parkingSpaces; }
     public void setSquareFootage(double squareFootage) { this.squareFootage = squareFootage; }
+    public String getBusinessType() { return businessType; }
+    public int getParkingSpaces() { return parkingSpaces; }
+    public double getSquareFootage() { return squareFootage; }
 }

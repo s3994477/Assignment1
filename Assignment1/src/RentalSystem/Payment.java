@@ -4,6 +4,7 @@ package RentalSystem;
  */
 
 import java.util.Date;
+import java.text.*;
 
 public class Payment {
     //Declare variables for this class
@@ -11,25 +12,36 @@ public class Payment {
     private Date date;
     private String method;
 
+    //Format date
+    SimpleDateFormat ft = new SimpleDateFormat ("dd/MM/yyyy");
+
     //Constructors
     public Payment() {
         this.amount = 0;
         this.date = null;
         this.method = "";
     }
-    public Payment(double amount, Date date, String method) {
+    public Payment(double amount, String date, String method) {
         this.amount = amount;
-        this.date = date;
+        try {
+            this.date = ft.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         this.method = method;
     }
 
     //Getters and Setters
     public double getAmount() { return amount; }
-    public Date getDate() { return date; }
+    public String getDate() { return ft.format(this.date); }
     public String getMethod() { return method; }
     public void setAmount(double amount) { this.amount = amount; }
-    public void setDate(Date date) { this.date = date; }
+    public void setDate(String date) {
+        try {
+            this.date = ft.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
     public void setMethod(String method) { this.method = method; }
-
-    //Testing github
 }
